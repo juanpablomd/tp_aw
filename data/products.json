@@ -1,85 +1,122 @@
 [
-    {
-      "id": 101,
-      "name": "Smartphone X1",
-      "description": "A cutting-edge smartphone with an OLED display.",
-      "price": 799.99,
-      "image": "smartphone_x1.jpg",
-      "available": true
-    },
-    {
-      "id": 102,
-      "name": "Laptop Pro 15",
-      "description": "A powerful laptop for professionals with a high-performance processor.",
-      "price": 1299.99,
-      "image": "laptop_pro_15.jpg",
-      "available": true
-    },
-    {
-      "id": 103,
-      "name": "Tablet Z",
-      "description": "A lightweight tablet with long battery life.",
-      "price": 499.99,
-      "image": "tablet_z.jpg",
-      "available": false
-    },
-    {
-        "id": 104,
-        "name": "Smartwatch G5",
-        "description": "A stylish smartwatch with fitness tracking capabilities.",
-        "price": 199.99,
-        "image": "smartwatch_g5.jpg",
-        "available": true
-      },
-      {
-        "id": 105,
-        "name": "Wireless Headphones",
-        "description": "High-quality wireless headphones with noise cancellation.",
-        "price": 299.99,
-        "image": "wireless_headphones.jpg",
-        "available": true
-      },
-      {
-        "id": 106,
-        "name": "Gaming Console X",
-        "description": "A next-gen gaming console with ultra-fast processing.",
-        "price": 499.99,
-        "image": "gaming_console_x.jpg",
-        "available": false
-      },
-      {
-        "id": 107,
-        "name": "4K TV Ultra HD",
-        "description": "A 55-inch 4K Ultra HD TV with HDR support.",
-        "price": 899.99,
-        "image": "4k_tv_ultra_hd.jpg",
-        "available": true
-      },
-      {
-        "id": 108,
-        "name": "Bluetooth Speaker",
-        "description": "Portable Bluetooth speaker with deep bass.",
-        "price": 149.99,
-        "image": "bluetooth_speaker.jpg",
-        "available": true
-      },
-      {
-        "id": 109,
-        "name": "Home Security Camera",
-        "description": "Wi-Fi enabled security camera with night vision.",
-        "price": 129.99,
-        "image": "home_security_camera.jpg",
-        "available": true
-      },
-      {
-        "id": 110,
-        "name": "Wireless Charger",
-        "description": "Fast wireless charger for smartphones and devices.",
-        "price": 39.99,
-        "image": "wireless_charger.jpg",
-        "available": true
-      }
-
-    ]
-  
-  
+  {
+    "id": 101,
+    "name": "Smartphone X1",
+    "description": "A cutting-edge smartphone with an OLED display.",
+    "price": "800.99",
+    "image": "smartphone_x1.jpg",
+    "available": true,
+    "stock": 10,
+    "category": "Phones"
+  },
+  {
+    "id": 102,
+    "name": "Laptop Pro 15",
+    "description": "A powerful laptop for professionals with a high-performance processor.",
+    "price": 1299.99,
+    "image": "laptop_pro_15.jpg",
+    "available": true,
+    "stock": 5,
+    "category": "Computers"
+  },
+  {
+    "id": 103,
+    "name": "Tablet Z",
+    "description": "A lightweight tablet with long battery life.",
+    "price": 499.99,
+    "image": "tablet_z.jpg",
+    "available": false,
+    "stock": 0,
+    "category": "Tablets"
+  },
+  {
+    "id": 104,
+    "name": "Smartwatch G5",
+    "description": "A stylish smartwatch with fitness tracking capabilities.",
+    "price": 199.99,
+    "image": "smartwatch_g5.jpg",
+    "available": true,
+    "stock": 8,
+    "category": "Watchs"
+  },
+  {
+    "id": 105,
+    "name": "Wireless Headphones",
+    "description": "High-quality wireless headphones with noise cancellation.",
+    "price": 299.99,
+    "image": "wireless_headphones.jpg",
+    "available": true,
+    "stock": 20,
+    "category": "Audio"
+  },
+  {
+    "id": 106,
+    "name": "Gaming Console X",
+    "description": "A next-gen gaming console with ultra-fast processing.",
+    "price": 499.99,
+    "image": "gaming_console_x.jpg",
+    "available": false,
+    "stock": 0,
+    "category": "Gaming"
+  },
+  {
+    "id": 107,
+    "name": "4K TV Ultra HD",
+    "description": "A 55-inch 4K Ultra HD TV with HDR support.",
+    "price": 899.99,
+    "image": "4k_tv_ultra_hd.jpg",
+    "available": true,
+    "stock": 9,
+    "category": "Televisions"
+  },
+  {
+    "id": 108,
+    "name": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker with deep bass.",
+    "price": 149.99,
+    "image": "bluetooth_speaker.jpg",
+    "available": true,
+    "stock": 6,
+    "category": "Audio"
+  },
+  {
+    "id": 109,
+    "name": "Home Security Camera",
+    "description": "Wi-Fi enabled security camera with night vision.",
+    "price": 129.99,
+    "image": "home_security_camera.jpg",
+    "available": true,
+    "stock": 3,
+    "category": "Home Security"
+  },
+  {
+    "id": 110,
+    "name": "Wireless Charger",
+    "description": "Fast wireless charger for smartphones and devices.",
+    "price": 39.99,
+    "image": "wireless_charger.jpg",
+    "available": true,
+    "stock": 14,
+    "category": "Accessories"
+  },
+  {
+    "id": 111,
+    "name": "VR Headset",
+    "description": "Immersive VR headset with a 120-degree field of view.",
+    "price": 399.99,
+    "image": "vr_headset.jpg",
+    "available": false,
+    "stock": 0,
+    "category": "Virtual Reality"
+  },
+  {
+    "id": 112,
+    "name": "iPhone 14 pro max",
+    "description": "Amazing iPhone",
+    "price": 1500.99,
+    "image": "imageiphone14.jpg",
+    "available": true,
+    "stock": 6,
+    "category": "Phones"
+  }
+]
