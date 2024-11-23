@@ -1,9 +1,9 @@
-import express, { json } from 'express'
-import {readFile, writeFile} from 'fs/promises'
+import express from 'express'
+import cors from 'cors'
 import userRouter from './routes/user.routes.js'
 import productRouter from './routes/products.routes.js'
 import saleRouter from './routes/sales.routes.js'
-
+import categoryRouter from './routes/category.routes.js'
 
 //Crear instancia de app
 const app = express()
@@ -18,6 +18,11 @@ app.listen(port, () =>{
 })
 
 
+app.use(cors({
+    origin: ['http://127.0.0.1:5500', 'http://127.0.0.1:5501'],
+
+}))
+
 //RUTAS DE USUARIO
 app.use('/user', userRouter)
 
@@ -26,3 +31,6 @@ app.use('/product', productRouter)
 
 //RUTAS DE VENTAS
 app.use('/sale', saleRouter)
+
+app.use('/category', categoryRouter)
+

@@ -4,7 +4,7 @@
     "name": "Smartphone X1",
     "description": "A cutting-edge smartphone with an OLED display.",
     "price": "800.99",
-    "image": "smartphone_x1.jpg",
+    "image": "https://m.media-amazon.com/images/I/61UXXk-OmWL._AC_SL1500_.jpg",
     "available": true,
     "stock": 10,
     "category": "Phones"
@@ -14,7 +14,7 @@
     "name": "Laptop Pro 15",
     "description": "A powerful laptop for professionals with a high-performance processor.",
     "price": 1299.99,
-    "image": "laptop_pro_15.jpg",
+    "image": "https://i.blogs.es/410239/xiaomi-mi-laptop-pro-15-ficha/840_560.jpg",
     "available": true,
     "stock": 5,
     "category": "Computers"
@@ -24,7 +24,7 @@
     "name": "Tablet Z",
     "description": "A lightweight tablet with long battery life.",
     "price": 499.99,
-    "image": "tablet_z.jpg",
+    "image": "https://i.blogs.es/697cda/sony-20xperia-20tablet-20z/650_1200.jpg",
     "available": false,
     "stock": 0,
     "category": "Tablets"
@@ -34,7 +34,7 @@
     "name": "Smartwatch G5",
     "description": "A stylish smartwatch with fitness tracking capabilities.",
     "price": 199.99,
-    "image": "smartwatch_g5.jpg",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_766192-MLA31030022257_062019-O.webp",
     "available": true,
     "stock": 8,
     "category": "Watchs"
@@ -44,7 +44,7 @@
     "name": "Wireless Headphones",
     "description": "High-quality wireless headphones with noise cancellation.",
     "price": 299.99,
-    "image": "wireless_headphones.jpg",
+    "image": "https://i5.walmartimages.com/seo/Sony-WH-CH720N-Noise-Canceling-Wireless-Bluetooth-Headphones-Black_8e3fa5d4-f841-4e6c-bb78-9959d29652ad.cc7bc3c09721e1951a7bc746c702ec58.jpeg",
     "available": true,
     "stock": 20,
     "category": "Audio"
@@ -54,7 +54,7 @@
     "name": "Gaming Console X",
     "description": "A next-gen gaming console with ultra-fast processing.",
     "price": 499.99,
-    "image": "gaming_console_x.jpg",
+    "image": "https://m.media-amazon.com/images/I/71B2xblSzZL.jpg",
     "available": false,
     "stock": 0,
     "category": "Gaming"
@@ -64,7 +64,7 @@
     "name": "4K TV Ultra HD",
     "description": "A 55-inch 4K Ultra HD TV with HDR support.",
     "price": 899.99,
-    "image": "4k_tv_ultra_hd.jpg",
+    "image": "https://images.samsung.com/is/image/samsung/p6pim/ar/un55cu7000gczb/gallery/ar-crystal-uhd-cu7000-un55cu7000gczb-536471182?$650_519_PNG$",
     "available": true,
     "stock": 9,
     "category": "Televisions"
@@ -74,7 +74,7 @@
     "name": "Bluetooth Speaker",
     "description": "Portable Bluetooth speaker with deep bass.",
     "price": 149.99,
-    "image": "bluetooth_speaker.jpg",
+    "image": "https://m.media-amazon.com/images/I/718yxonHN8L.jpg",
     "available": true,
     "stock": 6,
     "category": "Audio"
@@ -84,7 +84,7 @@
     "name": "Home Security Camera",
     "description": "Wi-Fi enabled security camera with night vision.",
     "price": 129.99,
-    "image": "home_security_camera.jpg",
+    "image": "https://http2.mlstatic.com/D_800238-MLA69838104860_062023-C.jpg",
     "available": true,
     "stock": 3,
     "category": "Home Security"
@@ -94,7 +94,7 @@
     "name": "Wireless Charger",
     "description": "Fast wireless charger for smartphones and devices.",
     "price": 39.99,
-    "image": "wireless_charger.jpg",
+    "image": "https://images.samsung.com/is/image/samsung/p6pim/ar/ep-p5400tbsgar/gallery/ar-ep-p5400-ep-p5400tbsgar-532118544?$650_519_PNG$",
     "available": true,
     "stock": 14,
     "category": "Accessories"
@@ -104,7 +104,7 @@
     "name": "VR Headset",
     "description": "Immersive VR headset with a 120-degree field of view.",
     "price": 399.99,
-    "image": "vr_headset.jpg",
+    "image": "https://cdn.mos.cms.futurecdn.net/9o5j7SttshFsyDT998HDxh-320-80.jpg",
     "available": false,
     "stock": 0,
     "category": "Virtual Reality"
@@ -114,7 +114,7 @@
     "name": "iPhone 14 pro max",
     "description": "Amazing iPhone",
     "price": 1500.99,
-    "image": "imageiphone14.jpg",
+    "image": "https://i5.walmartimages.com/asr/fee4af78-110f-467c-86d2-6d6f27ba1afe.8422413b3b9eb231cea3f43d11a5a5c4.jpeg",
     "available": true,
     "stock": 6,
     "category": "Phones"

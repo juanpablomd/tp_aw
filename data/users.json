@@ -4,7 +4,7 @@
     "firstName": "John",
     "lastName": "Doe",
     "email": "john.doe@example.com",
-    "password": "hashed_password_1"
+    "password": "pass1"
   },
   {
     "id": 2,
@@ -82,5 +82,19 @@
     "lastName": "Kennedy",
     "email": "rob.kb23@example.com",
     "password": "robcontrasena"
+  },
+  {
+    "id": 13,
+    "firstName": "Juan",
+    "lastName": "Medina",
+    "email": "rp3539@gmail.com",
+    "password": "$2b$08$WnXSTCT63jAOKS.a1qs2rOwd973aDKRrIXjslrzXdUoVXV8UfYC.G"
+  },
+  {
+    "id": 14,
+    "firstName": "Roberto",
+    "lastName": "Crazy",
+    "email": "crazy123@gmail.com",
+    "password": "$2b$08$QKYyY78eQAKCRSz.iV2BgOGafRuAVVKRt0WIa7UG2zCDknXj17wES"
   }
 ]

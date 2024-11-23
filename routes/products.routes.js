@@ -1,15 +1,34 @@
 import { Router } from "express"
 import {readFile, writeFile} from 'fs/promises'
+import { createProd,productByCategory, findAll } from "../db/actions/products.actions.js";
 
 const file = await readFile('./data/products.json', 'utf-8')
 const productData = JSON.parse(file)
 
 const router = Router()
 
-//Todos los productos
-router.get('/all', (req,res) =>{
-    res.status(200).json(productData)
-})
+//Lista de todos los productos
+router.get('/allproducts', async (req,res)=>{
+    try {
+
+        const result = await findAll()
+       if(result){
+
+         res.status(200).json(result)
+         console.log(result)
+       }
+       else{
+          res.status(400).json('No hay productos en venta')
+       }
+  
+       
+    } catch (error) {
+       res.status(500).json('Error en el servidor: ' + error.message);
+    }
+ 
+ })
+
+
 
 //Producto por ID
 router.get('/products/byId/:id', (req,res) =>{
@@ -27,78 +46,39 @@ router.get('/products/byId/:id', (req,res) =>{
 })
 
 
-//Agregar producto
-router.post('/newProduct', async (req,res)=>{
-    try{
-        const { name, description, price, image, available, stock, category } = req.body;
-
-    if (!name || !description || !price || !image || !stock || available === undefined || !category)  {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios'});
+//Nuevo producto
+router.post('/newProduct/', async (req,res) =>{
+    try {
+       const {name,desc,price,image,en_stock,categoryName} = req.body
+    
+       const result = await createProd({name:name,desc,price:price,image,stock:en_stock,categoryName})
+    
+       res.status(200).json(result)
+       
+    } catch (error) {
+       console.log(error)
+       res.status(400).json()
     }
-
-     // Encontrar el ID más alto en la lista de productos
-     const lastProductId = productData.length > 0 ? productData[productData.length - 1].id : 0;
-     const newProductId = lastProductId + 1;
-
-        const new_product = {
-            "id": newProductId,
-            "name": name,
-            "description": description,
-            "price": parseFloat(price),
-            "image": image,
-            "available": Boolean(available),
-            "stock": parseInt(stock),
-            "category": category
-      }
-      
-      productData.push(new_product);
-
-      await writeFile('./data/products.json', JSON.stringify(productData, null, 2), 'utf-8');
-
-      res.status(200).json({ message: 'Producto agregado con éxito', Product: new_product });
-
-    }catch(error){
-        res.status(500).json({ error: 'Error en el servidor: ' + error.message });
-    }
-})
+    })
 
 
-//Actualizar precio
-router.put('/update/price/:productID', (req,res) =>{
-    const product_id = parseInt(req.params.productID)
-    const new_price = req.body.price
-    try{
-        const index = productData.findIndex(e=> e.id === product_id)
-        if(index != -1){
-            productData[index].price = new_price
-            writeFile('./data/products.json', JSON.stringify(productData,null,2))
-            res.status(200).json("Precio actualizado")
-        }else{
-            res.status(400).json("ID no encontrado")
+
+
+ //Lista de productos por categoria
+ router.post('/ProductsByCategory', async (req, res) => {
+    try {
+        const categoryName = req.body.name;
+        const result = await productByCategory(categoryName);
+        if(result){
+            res.status(200).json(result);
+        } else {
+            res.status(200).json([]); // Devuelve un arreglo vacío si no hay productos
         }
-    }catch(error){
-        res.send(500).json("Error al actualizar precio")
+    } catch (error) {
+        res.status(500).json('Error en el servidor: ' + error.message);
     }
-})
-
-//Actualizar stock
-
-router.put('/update/stock/:productID', (req,res)=>{
-    const product_id = parseInt(req.params.productID)
-    const new_stock = req.body.stock
-    try{
-        const index = productData.findIndex(e=> e.id === product_id)
-        if(index != -1){
-            productData[index].stock = new_stock
-            writeFile('./data/products.json', JSON.stringify(productData,null,2))
-            res.status(200).json("Stock actualizado")
-        }else{
-            res.status(400).json("ID no encontrado")
-        }
-    }catch(error){
-        res.send(500).json("Error al actualizar stock")
-    }
-})
+ });
+ 
 
 
 export default router;

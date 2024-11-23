@@ -1,67 +1,63 @@
 
 import { Router } from "express"
 import {readFile, writeFile} from 'fs/promises'
-
+import bcrypt from 'bcryptjs';
+import { sign, decode } from "../utils/middleware.js";
+import { createUser, validateUser } from "../db/actions/user.actions.js";
+import { connectDatabase } from "../db/connection.db.js";
+import User from "../db/schemas/user.schema.js";
 
 const file = await readFile('./data/users.json', 'utf-8')
 const userData = JSON.parse(file)
 
 const router = Router()
 
-
-//Obtener todos los usuarios
-router.get('/all', (req,res) =>{
-    res.status(200).json(userData)
-})
+const SECRET = 'zqAGhJuvn3hY5pJOQ-p5f97GAzohYTGTIHfoUqjYft7mhQCHtkDK8QY_fRz7zQxC'
 
 
-//Usuario por ID
-router.get('/users/byId/:id', (req,res) =>{
-    const id = parseInt(req.params.id)
-    try{
-        const result = userData.find(e=> e.id === id)
-        if(result){
-            res.status(200).json(result)
-        }else{
-            res.status(400).json(`${id} no se encuentra`)
-        }
-    }catch(error){
-        res.send(500).json("Error al buscar")
-    }
-})
-
-
-//Agregar usuario
+// Registrar nuevo usuario
 router.post('/newUser', async (req,res)=>{
     try{
+        await connectDatabase();
         const { firstName, lastName, email, password } = req.body;
 
-    if (!firstName || !lastName || !email || !password) {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios'});
-    }
+        if (!firstName || !lastName || !email || !password) {
+            return res.status(400).json({ error: 'Todos los campos son obligatorios'});
+        }
+        
+        const hashedPass = bcrypt.hashSync(password, 8)
 
-     // Encontrar el ID más alto en la lista de usuarios
-     const lastUserId = userData.length > 0 ? userData[userData.length - 1].id : 0;
-     const newUserId = lastUserId + 1;
+        // Verificar si el correo ya está registrado
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ error: 'El email ya está registrado' });
+        }
 
-        const new_user = {
-        "id": newUserId,
-        "firstName": firstName,
-        "lastName": lastName,
-        "email": email,
-        "password": password
-      }
-      
-      userData.push(new_user);
+        const newUser =   {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "password": hashedPass
+          }
 
-      await writeFile('./data/users.json', JSON.stringify(userData, null, 2), 'utf-8');
-
-      res.status(200).json({ message: 'Usuario agregado con éxito', user: new_user });
-
+        const result = await createUser({firstName, lastName, email, password: hashedPass})
+        // Responder con éxito
+        res.status(201).json({
+            message: 'Usuario creado exitosamente',
+            user: {
+                id: newUser._id,
+                firstName: newUser.firstName,
+                lastName: newUser.lastName,
+                email: newUser.email,
+            },
+        });
     }catch(error){
         res.status(500).json({ error: 'Error en el servidor: ' + error.message });
     }
 })
+
+
+
 
 
 //Actualizar email
@@ -85,35 +81,37 @@ router.put('/email/update/:userID', (req,res)=>{
     
 })
 
-//Validar usuario
-router.post('/login', async (req, res) => {
-    try {
+
+
+//Validación de usuarios
+router.post('/validation', async (req,res)=>{
+    try{
         const { email, password } = req.body;
-
-        if (!email || !password) {
-            return res.status(400).json({ error: 'Email y contraseña son obligatorios' });
+        const result = await validateUser(email)
+        if (!result) {
+            return res.status(404).send({ status: false, message: 'Usuario no encontrado' });
         }
 
-        const user = userData.find(e => e.email === email && e.password === password);
+        const controlPass = bcrypt.compareSync(password , result.password)
 
-        if (!user) {
-            return res.status(404).json({ error: 'Usuario no encontrado' });
+        const results = {
+            "id": result.id,
+            "firstName": result.firstName,
+            "lastName": result.lastName,
+            "email" : result.email
         }
-
-        if (!password) {
-            return res.status(401).json({ error: 'Contraseña incorrecta' });
-        }
-
-        // Si todo es correcto, el usuario es validado
-        res.status(200).json({ message: 'Usuario validado correctamente', user: { email: user.email, firstName: user.firstName, lastName: user.lastName } });
-
-    } catch (error) {
+       
+        if (controlPass) {
+            const token = await sign(results)
+            const decodificado = await decode(token)
+            res.status(200).json({"decode":decodificado,"token":token});    
+       } else {
+        res.status(401).json({ error: 'Contraseña incorrecta' });
+       }
+    }catch(error){
         res.status(500).json({ error: 'Error en el servidor: ' + error.message });
     }
-});
-
-
-
+})
 
 
 

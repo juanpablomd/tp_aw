@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e04a"
+  },
+  "name": "Phones"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e04b"
+  },
+  "name": "Computers"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e04c"
+  },
+  "name": "Tablets"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e04d"
+  },
+  "name": "Watchs"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e04e"
+  },
+  "name": "Audio"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e04f"
+  },
+  "name": "Gaming"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e050"
+  },
+  "name": "Televisions"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e051"
+  },
+  "name": "Home Security"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e052"
+  },
+  "name": "Accessories"
+},
+{
+  "_id": {
+    "$oid": "673f765b33d583c0d4c1e053"
+  },
+  "name": "Virtual Reality"
+}]
