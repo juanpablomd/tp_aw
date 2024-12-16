@@ -4,6 +4,7 @@ import userRouter from './routes/user.routes.js'
 import productRouter from './routes/products.routes.js'
 import saleRouter from './routes/sales.routes.js'
 import categoryRouter from './routes/category.routes.js'
+import comentariosRouter from './routes/comentarios.routes.js'
 
 //Crear instancia de app
 const app = express()
@@ -34,3 +35,4 @@ app.use('/sale', saleRouter)
 
 app.use('/category', categoryRouter)
 
+app.use('/comentarios', comentariosRouter)

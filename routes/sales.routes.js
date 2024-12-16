@@ -40,16 +40,20 @@ router.post('/newSales/', async (req,res) =>{
        const verificado = await verify(token)
  
  
-        if(verificado){
-         const newSale = await createSale({userId,date,total,email,products})
-          res.status(200).json(true)
-        }
-        else{
-           return res.status(401).json({ message: 'Token inválido o expirado.' });
-        }
+       if (verificado) {
+        const newSale = await createSale({ userId, date, total, email, products });
+        res.status(200).json({ success: true, sale: newSale });
+    } else {
+        res.status(200).json({ success: false, message: "Token inválido" });
+    }
+ 
+       
     } catch (error) {
        res.status(400).json(error);
     }
+ 
+     
+ 
  })
 
 
